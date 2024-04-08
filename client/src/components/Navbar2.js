@@ -13,9 +13,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import Logo from '../assets/amazonLogo.png'
+import Logo from '../assets/krishiLogo.png'
 import SellIcon from '@mui/icons-material/Sell';
 import ArticleIcon from '@mui/icons-material/Article';
+import './navbar.scss';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -206,7 +207,7 @@ function Navbar2() {
                         aria-label="open drawer"
                         sx={{ mr: 2 }}
                     >
-                        <img src={Logo} style={{ height: "30px" }} alt="logo" />
+                        <img src={Logo} style={{ height: "30px", width: "180px" }} alt="logo" />
                     </IconButton>
                     <Search style={{ width: "350px" }}>
                         <SearchIconWrapper>
@@ -218,10 +219,14 @@ function Navbar2() {
                         />
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />
+
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+
                             <ArticleIcon style={{ fontSize: "1.4rem", marginRight: "4px" }} />
                             <p style={{ fontSize: "1.1rem" }}>News</p>
+
+
                         </IconButton>
 
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -253,6 +258,7 @@ function Navbar2() {
                         )}
 
                     </Box>
+
 
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton

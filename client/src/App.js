@@ -5,6 +5,7 @@ import Navbar2 from './components/Navbar2';
 import News from './pages/News';
 import LoadingBar from 'react-top-loading-bar';
 import Footer from './components/Footer';
+import Register from './pages/Register';
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -20,10 +21,11 @@ function App() {
 
       <Navbar2 />
 
+      <Register />
 
       {/* <News setProgress={setProgress} key="technology" country="in" category="health" /> */}
 
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
   )
