@@ -8,7 +8,7 @@ const url = process.env.MONGO_URL;
 // Connect with database
 mongoose.connect(url)
     .then(function () {
-        console.log('Successfully connected to Database ...');
+        console.log('Successfully connected to Database User Schema ...');
     })
     .catch(function (err) {
         console.log(err);

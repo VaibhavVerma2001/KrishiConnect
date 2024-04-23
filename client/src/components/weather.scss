@@ -1,0 +1,21 @@
+.weather{
+
+    .detail-out{
+        background-color: rgb(178, 252, 171);
+        color: rgb(116, 115, 115);
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        img{
+            width: 25px;
+            height: 25px;
+    
+        }
+    }
+    
+}   

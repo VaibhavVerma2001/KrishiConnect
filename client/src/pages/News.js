@@ -4,7 +4,7 @@ import Spinner from '../components/Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect } from 'react';
-import './login.scss';
+import './news.scss';
 
 function News(props) {
 
