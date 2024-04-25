@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './weather.scss';
 import TextField from '@mui/material/TextField';
+import wind_icon from '../assets/wind.png'
+import humidity_icon from '../assets/humidity.png'
 
 export default function TransitionsModal() {
   const [open, setOpen] = React.useState(false);
@@ -17,6 +19,7 @@ export default function TransitionsModal() {
   // Related to weather
   const [city, setCity] = useState("Delhi");
   const [weather, setWeather] = useState({});
+
 
   useEffect(() => {
     const getData = async () => {
@@ -31,9 +34,11 @@ export default function TransitionsModal() {
           temp_max: data.main.temp_max,
           temp_min: data.main.temp_min,
           weatherDescription: data.weather[0].description,
+          humidity: data.main.humidity,
+          wind: data.wind.speed,
           weatherCity: data.name,
           imgUrl: "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
-        })
+        });
 
       } catch (error) {
         console.log(error);
@@ -58,15 +63,43 @@ export default function TransitionsModal() {
             closeAfterTransition
             slots={{ backdrop: StyledBackdrop }}
           >
-            <Fade in={open}>
+            <Fade in={open} className='open'>
               <ModalContent sx={style}>
-                <h2 id="transition-modal-title" className="modal-title">
-                  Weather details for {city}
-                </h2>
-                <p id="transition-modal-description" className="modal-description">
-                  {weather.temp} {weather.temp_max} {weather.temp_min}  {weather.weatherDescription}
-                </p>
-                <img src={weather.imgUrl} alt="weather-img" />
+
+                <div className="top-bar">
+                  <input
+                    type="text" onChange={(e) => setCity(e.target.value)} className='city-input' placeholder="Search Location"
+                  />
+                </div>
+
+
+
+                <div className="weather-image">
+                  <img src={weather.imgUrl} alt="weather-img" />
+                </div>
+
+                <div className="weather-temp">28°c</div>
+                <div className="weather-location">Pune</div>
+
+
+                <div className="data-container">
+                  <div className="element">
+                    <img src={humidity_icon} alt="" className="icon" />
+                    <div className="data">
+                      <div className="humidity-percentage">64%</div>
+                      <div className="text">Humidity</div>
+                    </div>
+                  </div>
+                  <div className="element">
+                    <img src={wind_icon} alt="" className="icon" />
+                    <div className="data">
+                      <div className="wind-rate">18 km/h</div>
+                      <div className="text">Wind Speed</div>
+                    </div>
+                  </div>
+                </div>
+
+
               </ModalContent>
             </Fade>
           </Modal>
@@ -139,6 +172,7 @@ const style = {
   width: 400,
 };
 
+// css for open model
 const ModalContent = styled('div')(
   ({ theme }) => css`
     font-family: 'IBM Plex Sans', sans-serif;
@@ -149,27 +183,11 @@ const ModalContent = styled('div')(
     flex-direction: column;
     gap: 8px;
     overflow: hidden;
-    background-color: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-    border-radius: 8px;
+    border-radius: 20px;
     border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
     box-shadow: 0 4px 12px
       ${theme.palette.mode === 'dark' ? 'rgb(0 0 0 / 0.5)' : 'rgb(0 0 0 / 0.2)'};
     padding: 24px;
-    color: ${theme.palette.mode === 'dark' ? grey[50] : grey[900]};
-
-    & .modal-title {
-      margin: 0;
-      line-height: 1.5rem;
-      margin-bottom: 8px;
-    }
-
-    & .modal-description {
-      margin: 0;
-      line-height: 1.5rem;
-      font-weight: 400;
-      color: ${theme.palette.mode === 'dark' ? grey[400] : grey[800]};
-      margin-bottom: 4px;
-    }
   `,
 );
 
