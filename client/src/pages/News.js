@@ -23,9 +23,9 @@ function News(props) {
     }
 
 
-    const updateNews = async ()=> {
+    const updateNews = async () => {
         props.setProgress(10);
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`; 
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
         setLoading(true)
         let data = await fetch(url);
         props.setProgress(30);
@@ -38,44 +38,51 @@ function News(props) {
     }
 
     useEffect(() => {
-        updateNews(); 
+        updateNews();
         // eslint-disable-next-line
     }, [])
 
 
-    const fetchMoreData = async () => {   
-        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page+1}&pageSize=${pageSize}`;
-        setPage(page+1) 
+    const fetchMoreData = async () => {
+        const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page + 1}&pageSize=${pageSize}`;
+        setPage(page + 1)
         let data = await fetch(url);
         let parsedData = await data.json()
         setArticles(articles.concat(parsedData.articles))
         setTotalResults(parsedData.totalResults)
-      };
+    };
 
     return (
         <div className='news'>
-                <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '90px' }}>RadarNews - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
-                <div className="spinner">
-                    {loading && <Spinner />}
-                </div>
-                <InfiniteScroll
-                    dataLength={articles.length}
-                    next={fetchMoreData}
-                    hasMore={articles.length !== totalResults}
-                    loader={ <Spinner />}
-                > 
-                    <div className="container">
-                         
-                    <div className="row">
-                        {articles.map((element) => {
-                            return <div className="col-md-4" key={element.url}>
-                                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
-                            </div>
-                        })}
+            {articles ? (
+                <>
+                    <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '90px' }}>RadarNews - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+                    <div className="spinner">
+                        {loading && <Spinner />}
                     </div>
-                    </div> 
-                </InfiniteScroll>
-            </div>
+                    <InfiniteScroll
+                        dataLength={articles.length}
+                        next={fetchMoreData}
+                        hasMore={articles.length !== totalResults}
+                        loader={<Spinner />}
+                    >
+                        <div className="container">
+
+                            <div className="row">
+                                {articles.map((element) => {
+                                    return <div className="col-md-4" key={element.url}>
+                                        <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                                    </div>
+                                })}
+                            </div>
+                        </div>
+                    </InfiniteScroll>
+                </>
+            ) : (
+                ""
+            )}
+
+        </div>
     )
 }
 

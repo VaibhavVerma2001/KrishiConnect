@@ -53,7 +53,6 @@ export default function TransitionsModal() {
       {weather ? (
         <>
           <TriggerButton className='detail-out' onClick={handleOpen}>{weather.temp}°C
-            <img src={weather.imgUrl} alt="weather-icon" />
           </TriggerButton>
           <Modal
             aria-labelledby="transition-modal-title"
@@ -78,22 +77,22 @@ export default function TransitionsModal() {
                   <img src={weather.imgUrl} alt="weather-img" />
                 </div>
 
-                <div className="weather-temp">28°c</div>
-                <div className="weather-location">Pune</div>
+                <div className="weather-temp">{weather.temp}°c</div>
+                <div className="weather-location">{city}</div>
 
 
                 <div className="data-container">
                   <div className="element">
                     <img src={humidity_icon} alt="" className="icon" />
                     <div className="data">
-                      <div className="humidity-percentage">64%</div>
+                      <div className="humidity-percentage">{weather.humidity}%</div>
                       <div className="text">Humidity</div>
                     </div>
                   </div>
                   <div className="element">
                     <img src={wind_icon} alt="" className="icon" />
                     <div className="data">
-                      <div className="wind-rate">18 km/h</div>
+                      <div className="wind-rate">{Math.ceil(weather.wind)} km/h</div>
                       <div className="text">Wind Speed</div>
                     </div>
                   </div>

@@ -1,19 +1,19 @@
 .weather {
     .detail-out {
-        background-color: rgb(178, 252, 171);
-        color: rgb(116, 115, 115);
+        background-image: linear-gradient(180deg, #94c8e5 0%, #9989e9 100%);
+        color: #fff;
         border-radius: 50%;
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        transition: all 0.5s ease;
 
-        img {
-            width: 25px;
-            height: 25px;
-
+        &:hover{
+            color: grey;
+            scale: 1.1;
         }
     }
 }
@@ -33,10 +33,14 @@
         outline: none;
         border-radius: 40px;
         padding-left: 10px;
-        color: #626262;
+        color: rgb(62, 61, 61);
         font-size: 16px;
         font-weight: 400;
 
+    }
+
+    ::placeholder {
+        color: rgb(62, 61, 61);
     }
 }
 
@@ -101,9 +105,32 @@
 }
 
 .open {
-    height: 450px;
+    height: 500px;
     display: flex;
     align-items: center;
-    background-image: linear-gradient(180deg, #00447c 0%, #3b2f80 100%);
+    background-image: linear-gradient(180deg, #3c8aca 0%, #6c5cbe 100%);
     box-sizing: border-box;
 }
+
+
+
+@media screen and (max-width: 456px) {
+    .weather-temp {
+        font-size: 3rem;
+    }
+
+    .weather-location{
+        font-size: 1.8rem;
+    }
+
+
+    .data{
+        font-size: 30px;
+    }
+
+    .text{
+        font-size: 18px;
+    }
+
+
+  }
