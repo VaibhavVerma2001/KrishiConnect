@@ -196,6 +196,7 @@ const TriggerButton = styled(Button)(
   ({ theme }) => css`
     font-family: 'IBM Plex Sans', sans-serif;
     position: fixed;
+    z-index : 999;
     bottom : 30px;
     right : 20px;
     font-weight: 600;

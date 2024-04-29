@@ -11,6 +11,8 @@
         flex-direction: column;
         transition: all 0.5s ease;
 
+        
+
         &:hover{
             color: grey;
             scale: 1.1;
@@ -33,14 +35,14 @@
         outline: none;
         border-radius: 40px;
         padding-left: 10px;
-        color: rgb(62, 61, 61);
+        color: rgb(150, 148, 148);
         font-size: 16px;
         font-weight: 400;
 
     }
 
     ::placeholder {
-        color: rgb(62, 61, 61);
+        color: rgb(150, 148, 148);
     }
 }
 

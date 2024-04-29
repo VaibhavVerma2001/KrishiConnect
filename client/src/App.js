@@ -8,6 +8,10 @@ import Footer from './components/Footer';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Weather from './components/Weather';
+import SingleProduct from './pages/SingleProduct';
+import Home from './pages/Home';
+
+import Slide from './components/Home/Slide';
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -23,13 +27,19 @@ function App() {
 
       <Navbar2 />
 
+      <Home />
+
       {/* <Register /> */}
 
       {/* <Login /> */}
 
       {/* <News setProgress={setProgress} key="technology" country="in" category="health" /> */}
 
+      {/* <SingleProduct /> */}
+
       {/* <Footer /> */}
+
+      {/* <Slide /> */}
 
       <Weather />
 
