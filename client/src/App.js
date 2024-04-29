@@ -11,7 +11,6 @@ import Weather from './components/Weather';
 import SingleProduct from './pages/SingleProduct';
 import Home from './pages/Home';
 
-import Slide from './components/Home/Slide';
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -39,7 +38,6 @@ function App() {
 
       {/* <Footer /> */}
 
-      {/* <Slide /> */}
 
       <Weather />
 
