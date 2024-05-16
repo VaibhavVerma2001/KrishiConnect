@@ -7,7 +7,6 @@ import { Button } from '@mui/base/Button';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './weather.scss';
-import TextField from '@mui/material/TextField';
 import wind_icon from '../assets/wind.png'
 import humidity_icon from '../assets/humidity.png'
 

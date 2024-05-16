@@ -13,34 +13,34 @@ mongoose.connect(url)
     .catch(function (err) {
         console.log(err);
     }
-);
+    );
 
 
 const productSchema = new mongoose.Schema({
-    imgUrl : {
-        type : String  
+    imgUrl: {
+        type: String
     },
-    shortTitle : {
-        type : String,
+    shortTitle: {
+        type: String,
     },
-    longTitle : {
-        type : String,
+    longTitle: {
+        type: String,
     },
-    price : {
-        type : Object,
+    price: {
+        type: Object,
     },
-    description : {
-        type : String,
+    description: {
+        type: String,
     },
-    discount : {
-        type : String,
+    discount: {
+        type: String,
     },
-    tagline : {
-        type : String,
+    tagline: {
+        type: String,
     },
-    category : {
-        type : String,
-        enum : ["SEEDS", "VEGETABLES" , "FRUITS" , "CROPS","PESTICIDES", "FERTILIZERS","EQUIPMENTS","OTHERS"],
+    category: {
+        type: String,
+        enum: ["SEEDS", "VEGETABLES", "FRUITS", "CROPS", "PESTICIDES", "FERTILIZERS", "EQUIPMENTS", "OTHERS"],
     },
 },
     // to store time by default

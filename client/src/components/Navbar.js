@@ -16,7 +16,6 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../assets/krishiLogo.png'
 import SellIcon from '@mui/icons-material/Sell';
 import ArticleIcon from '@mui/icons-material/Article';
-import './navbar.scss';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -60,7 +59,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-function Navbar2() {
+function Navbar() {
 
     // user use state
     const [user, setUser] = useState(true);
@@ -281,4 +280,4 @@ function Navbar2() {
     );
 }
 
-export default Navbar2;
+export default Navbar;

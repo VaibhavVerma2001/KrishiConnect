@@ -50,7 +50,7 @@ function Footer() {
                             <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
                                 <h6 className='text-uppercase fw-bold mb-4'>
                                     <MDBIcon color='secondary' icon='gem' className='me-3' />
-                                    Company name
+                                    Krishi Connect
                                 </h6>
                                 <p>
                                     Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
@@ -62,22 +62,22 @@ function Footer() {
                                 <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
                                 <p>
                                     <a href='/' className='text-reset'>
-                                        Angular
+                                        Fruits
                                     </a>
                                 </p>
                                 <p>
                                     <a href='/' className='text-reset'>
-                                        React
+                                        Vegetables
                                     </a>
                                 </p>
                                 <p>
                                     <a href='/' className='text-reset'>
-                                        Vue
+                                        Seeds
                                     </a>
                                 </p>
                                 <p>
                                     <a href='/' className='text-reset'>
-                                        Laravel
+                                        Pesticides
                                     </a>
                                 </p>
                             </MDBCol>
@@ -86,12 +86,12 @@ function Footer() {
                                 <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
                                 <p>
                                     <a href='/' className='text-reset'>
-                                        Pricing
+                                        About Us
                                     </a>
                                 </p>
                                 <p>
                                     <a href='/' className='text-reset'>
-                                        Settings
+                                        Contact Us
                                     </a>
                                 </p>
                                 <p>
@@ -110,14 +110,14 @@ function Footer() {
                                 <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
                                 <p>
                                     <MDBIcon color='secondary' icon='home' className='me-2' />
-                                    New York, NY 10012, US
+                                    Lovely Professional University, Punjab
                                 </p>
                                 <p>
                                     <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                                    info@example.com
+                                    krishi.connect@gmail.com
                                 </p>
                                 <p>
-                                    <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
+                                    <MDBIcon color='secondary' icon='phone' className='me-3' /> + 91 1234 567 889
                                 </p>
                             </MDBCol>
                         </MDBRow>
@@ -125,9 +125,9 @@ function Footer() {
                 </section>
 
                 <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-                    © 2021 Copyright:
+                    © 2024 Copyright:
                     <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-                        MDBootstrap.com
+                        KrishiConnect.com
                     </a>
                 </div>
             </MDBFooter>

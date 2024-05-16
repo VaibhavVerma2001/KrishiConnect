@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const authRoute = require("./routes/auth");
-// const productsRoute = require("./routes/products");
+const productsRoute = require("./routes/products");
 
 
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 
 app.use("/api/auth", authRoute);
-// app.use("/api/products", productsRoute);
+app.use("/api/products", productsRoute);
 
 
 

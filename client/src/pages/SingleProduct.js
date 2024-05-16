@@ -9,10 +9,7 @@ function SingleProduct() {
             {/* left part */}
             <div className="left">
                 <div id="product_img">
-                    <img
-                        src="https://vagen-store-demo.myshopify.com/cdn/shop/products/1_2a65e36c-8876-41d8-a86b-4d1d9a3c97b4.jpg?v=1692931327 "
-                        alt="Image"
-                    />
+                    <img src="https://vagen-store-demo.myshopify.com/cdn/shop/products/1_2a65e36c-8876-41d8-a86b-4d1d9a3c97b4.jpg?v=1692931327" alt="product-img"/>
                 </div>
                 <div className="left_btn">
                     <Button variant="outlined" startIcon={<DeleteIcon />}>

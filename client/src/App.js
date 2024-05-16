@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './App.scss'
 // import Login from '../src/pages/Login';
-import Navbar2 from './components/Navbar2';
-import News from './pages/News';
+import Navbar from './components/Navbar';
+// import News from './pages/News';
 import LoadingBar from 'react-top-loading-bar';
 import Footer from './components/Footer';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Weather from './components/Weather';
-import SingleProduct from './pages/SingleProduct';
+// import SingleProduct from './pages/SingleProduct';
 import Home from './pages/Home';
+import SecondaryNavbar from './components/SecondaryNavbar';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
         onLoaderFinished={() => setProgress(0)}
       />
 
-      <Navbar2 />
+      <Navbar />
+      <SecondaryNavbar />
 
       <Home />
 

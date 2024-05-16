@@ -15,9 +15,9 @@ function Banner_img_1() {
   return (
     <div style={myStyle} className='banner-img'>
       <div className="info-1">
-        <span className="small">Vegetable Store</span>
-        <span className="big">Fruit Box And</span>
-        <span className="big">Free Shipping</span>
+        <span className="small">Vegetable You Should Eat</span>
+        <span className="big">The Fresh Organic</span>
+        <span className="big">Vegetables</span>
         <Button className="btn" variant="contained" endIcon={<AddShoppingCartIcon />}>
           SHOP NOW
         </Button>

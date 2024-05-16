@@ -3,10 +3,10 @@ import './banner.scss';
 import Carousel from 'react-material-ui-carousel';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import Banner_img_1 from './Banner_img_1';
-import Banner_img_2 from './Banner_img_2';
-import Banner_img_3 from './Banner_img_3';
-import Banner_img_4 from './Banner_img_4';
+import BannerImg1 from './Banner_img_1';
+import BannerImg2 from './Banner_img_2';
+import BannerImg3 from './Banner_img_3';
+import BannerImg4 from './Banner_img_4';
 
 function Banner() {
 
@@ -33,10 +33,10 @@ function Banner() {
                 PrevIcon={<KeyboardDoubleArrowLeftIcon />}
             >
 
-                <Banner_img_4 />
-                <Banner_img_1 />
-                <Banner_img_3 />
-                <Banner_img_2 />
+                <BannerImg4 />
+                <BannerImg1 />
+                <BannerImg3 />
+                <BannerImg2 />
 
             </Carousel>
         </div>
