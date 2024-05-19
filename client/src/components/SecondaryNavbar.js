@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 function SecondaryNavbar() {
 
@@ -112,14 +113,26 @@ function SecondaryNavbar() {
                         </Menu>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Button
+                        <Link className="link" to={'/'}><Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                             style={{ marginRight: "20px" }}
                         >
                             Home
                         </Button>
+                        </Link>
 
+                        <Link className="link" to={'/category/all'} >
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ my: 2, color: 'white', display: 'block' }}
+                            style={{ marginRight: "20px" }}
+                        >
+                            All Products
+                        </Button>
+                        </Link>
+
+                        <Link className="link" to={'/category/vegetables'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -127,7 +140,9 @@ function SecondaryNavbar() {
                         >
                             Vegetables
                         </Button>
-
+                        </Link>
+                        
+                        <Link className="link" to={'/category/fruits'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -135,7 +150,9 @@ function SecondaryNavbar() {
                         >
                             Fruits
                         </Button>
+                        </Link>
 
+                        <Link className="link" to={'/category/crops'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -143,7 +160,9 @@ function SecondaryNavbar() {
                         >
                             Crops
                         </Button>
-
+                        </Link>
+                        
+                        <Link className="link" to={'/category/seeds'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -151,7 +170,9 @@ function SecondaryNavbar() {
                         >
                             Seeds
                         </Button>
-
+                        </Link>
+                        
+                        <Link className="link" to={'/category/pesticides'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -159,7 +180,9 @@ function SecondaryNavbar() {
                         >
                             Pesticides
                         </Button>
+                        </Link>
 
+                        <Link className="link" to={'/category/fertilizers'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -167,7 +190,9 @@ function SecondaryNavbar() {
                         >
                             Fertilizers
                         </Button>
+                        </Link>
 
+                        <Link className="link" to={'/category/equipments'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -175,7 +200,9 @@ function SecondaryNavbar() {
                         >
                             Equipments
                         </Button>
+                        </Link>
 
+                        <Link className="link" to={'/about'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -183,7 +210,10 @@ function SecondaryNavbar() {
                         >
                             About Us
                         </Button>
+                        </Link>
 
+
+                        <Link className="link" to={'/contact'} >
                         <Button
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
@@ -191,6 +221,7 @@ function SecondaryNavbar() {
                         >
                             Contact Us
                         </Button>
+                        </Link>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

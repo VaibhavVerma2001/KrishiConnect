@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import {useContext } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,6 +16,8 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../assets/krishiLogo.png'
 import SellIcon from '@mui/icons-material/Sell';
 import ArticleIcon from '@mui/icons-material/Article';
+import { Link,useNavigate } from 'react-router-dom';
+import UserContext from '../context/UserContext';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -61,8 +63,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function Navbar() {
 
-    // user use state
-    const [user, setUser] = useState(true);
+    const navigate = useNavigate();
+
+    const context = useContext(UserContext);
+    const { user, setUser } = context;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -87,6 +91,14 @@ function Navbar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    // handle logout
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("accessToken");
+        setUser(null);
+        navigate('/');
+    }
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -104,7 +116,7 @@ function Navbar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={handleMenuClose}>{user.username}</MenuItem>
             <MenuItem onClick={handleMenuClose}>Sell Item</MenuItem>
         </Menu>
     );
@@ -149,7 +161,7 @@ function Navbar() {
                 >
                     <AccountCircle />
                 </IconButton>
-                <p>Profile</p>
+                <p>{user.username}</p>
             </MenuItem>
 
             <MenuItem>
@@ -189,7 +201,7 @@ function Navbar() {
                 >
                     <AccountCircle />
                 </IconButton>
-                <p>Sign In</p>
+                <p>Logout</p>
             </MenuItem>
 
         </Menu>
@@ -199,15 +211,17 @@ function Navbar() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{ backgroundColor: "#6AA84F" }}>
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        sx={{ mr: 2 }}
-                    >
-                        <img src={Logo} style={{ height: "30px", width: "180px" }} alt="logo" />
-                    </IconButton>
+                    <Link className='link' to={`/`}>
+                        <IconButton
+                            size="large"
+                            edge="start"
+                            color="inherit"
+                            aria-label="open drawer"
+                            sx={{ mr: 2 }}
+                        >
+                            <img src={Logo} style={{ height: "30px", width: "180px" }} alt="logo" />
+                        </IconButton>
+                    </Link>
                     <Search style={{ width: "350px" }}>
                         <SearchIconWrapper>
                             <SearchIcon />
@@ -220,13 +234,12 @@ function Navbar() {
                     <Box sx={{ flexGrow: 1 }} />
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-
-                            <ArticleIcon style={{ fontSize: "1.4rem", marginRight: "4px" }} />
-                            <p style={{ fontSize: "1.1rem" }}>News</p>
-
-
-                        </IconButton>
+                        <Link className='link' to={`/news`}>
+                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                <ArticleIcon style={{ fontSize: "1.4rem", marginRight: "4px" }} />
+                                <p style={{ fontSize: "1.1rem" }}>News</p>
+                            </IconButton>
+                        </Link>
 
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="error">
@@ -246,15 +259,10 @@ function Navbar() {
                             <AccountCircle />
                         </IconButton>
 
-                        {user ? (
-                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                <p style={{ fontSize: "1rem", marginLeft: "10px" }}>Logout </p>
-                            </IconButton>
-                        ) : (
-                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                <p style={{ fontSize: "1rem", marginLeft: "10px" }}>Sign In</p>
-                            </IconButton>
-                        )}
+
+                        <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={handleLogout}>
+                            <p style={{ fontSize: "1rem", marginLeft: "10px" }}>Logout </p>
+                        </IconButton>
 
                     </Box>
 
