@@ -3,10 +3,14 @@ import NewsItem from '../components/NewsItem';
 import Spinner from '../components/Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useEffect } from 'react';
+import { useEffect,useContext } from 'react';
+import UserContext from '../context/UserContext';
 import './news.scss';
 
 function News(props) {
+
+    const context = useContext(UserContext);
+    const {setProgress } = context;
 
     const pageSize = 9;
     const apiKey = process.env.REACT_APP_NEWS_API;
@@ -24,17 +28,17 @@ function News(props) {
 
 
     const updateNews = async () => {
-        props.setProgress(10);
+        setProgress(10);
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
         setLoading(true)
         let data = await fetch(url);
-        props.setProgress(30);
+        setProgress(30);
         let parsedData = await data.json()
-        props.setProgress(70);
+        setProgress(70);
         setArticles(parsedData.articles)
         setTotalResults(parsedData.totalResults)
         setLoading(false)
-        props.setProgress(100);
+        setProgress(100);
     }
 
     useEffect(() => {

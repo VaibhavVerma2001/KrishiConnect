@@ -35,6 +35,9 @@
     box-shadow: darkgray;
     width: 100%;
     padding: 10px 10px;
+
+    font-family: "Lora", serif;
+    font-style: normal;
 }
 
 .right #rating .checked {
@@ -50,5 +53,6 @@
 }
 
 .right #cost .right_data {
-    color: red;
+
+    color: #6aa84f;
 }

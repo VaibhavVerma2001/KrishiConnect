@@ -1,8 +1,5 @@
 import React from 'react';
 import './secondaryNavbar.scss';
-
-
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,12 +8,8 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { display, margin } from '@mui/system';
 
 function SecondaryNavbar() {
 
@@ -25,9 +18,6 @@ function SecondaryNavbar() {
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
     };
 
     const handleCloseNavMenu = () => {
@@ -44,16 +34,6 @@ function SecondaryNavbar() {
     }
 
     return (
-        // <div className='secondary-navbar'>
-        //   <span>Home</span>
-        //   <span>Fruits</span>
-        //   <span>Vegetables</span>
-        //   <span>Crops</span>
-        //   <span>Seeds</span>
-        //   <span>Pesticides</span>
-        //   <span>Fertilizers</span>
-        //   <span>Equipments</span>
-        // </div>
         <AppBar className='secondary-navbar' position="static" sx={myStyle}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>

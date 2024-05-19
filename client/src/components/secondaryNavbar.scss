@@ -4,13 +4,11 @@
     align-items: center;
     justify-content: center;
 
-    span{
-        cursor: pointer;
+    Button{
         transition: all 0.3s ease;
-        padding: 5px 10px;
 
         &:hover{
-            border: 2px solid white;
+            border: 1px solid white;
         }
     }
 

@@ -36,3 +36,14 @@
 .app-light {
   --bgcolor : red;
 }
+
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+  transition: .2s ease-in-out;
+}

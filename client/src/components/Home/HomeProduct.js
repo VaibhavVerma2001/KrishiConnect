@@ -3,13 +3,19 @@ import './homeproduct.scss';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import ProductCard from '../ProductCard';
-import { useState , useEffect} from 'react';
-import products from '../../constant';
+import { useState, useContext } from 'react';
+import UserContext from '../../context/UserContext';
 
 function HomeProduct() {
     const [active, setActive] = useState(1);
+    const context = useContext(UserContext);
+    const { products } = context;
 
-    
+    const Vegetables = products.VEGETABLES;
+    const Fruits = products.FRUITS;
+    const Seeds = products.SEEDS;
+
+
 
     return (
         <div className='home-product'>
@@ -21,40 +27,39 @@ function HomeProduct() {
                 <Button className={`btn ${active === 3 ? 'bold' : ""}`} variant="outlined" onClick={() => setActive(3)}>TOP RATES</Button>
             </Stack>
 
-            <div className="container-fluid">
-                {active === 1 && <div className="row">
-                    {products.map((product,i) => (
-                        <div className="col-lg-3 col-md-6" key={i}>
-                            <ProductCard product = {product}/>
-                        </div>
-                    ))}
-                    
-                </div>}
+            {Vegetables ? (
+                <div className="container-fluid">
+                    {active === 1 && <div className="row">
+                        {Vegetables.map((product, i) => (
+                            <div className="col-lg-3 col-md-6" key={i}>
+                                <ProductCard product={product} />
+                            </div>
+                        ))}
 
-                {active === 2 && <div className="row">
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                </div>}
+                    </div>}
 
-                {active === 3 && <div className="row">
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                </div>}
+                    {active === 2 && <div className="row">
+                        {Fruits.map((product, i) => (
+                            <div className="col-lg-3 col-md-6" key={i}>
+                                <ProductCard product={product} />
+                            </div>
+                        ))}
+                    </div>}
 
-            </div>
+                    {active === 3 && <div className="row">
+                        {Seeds.map((product, i) => (
+                            <div className="col-lg-3 col-md-6" key={i}>
+                                <ProductCard product={product} />
+                            </div>
+                        ))}
+                    </div>}
+
+                </div>
+            ) : (
+                ""
+            )}
+
+
 
             <div className="poster container-fluid">
                 <span className="big">Flat 50% off on fresh organic</span>
