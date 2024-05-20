@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./singleproduct.scss";
 import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Shop2Icon from '@mui/icons-material/Shop2';
 import { useLocation } from "react-router-dom";
-import { useEffect, useContext } from "react";
 import UserContext from "../context/UserContext";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
 
 function SingleProduct() {
 
@@ -17,7 +20,7 @@ function SingleProduct() {
 
     // Context api
     const context = useContext(UserContext);
-    const { setProgress } = context;
+    const { user, setUser, setProgress } = context;
 
     // single Product fetched
     const [product, setProduct] = useState({});
@@ -37,23 +40,97 @@ function SingleProduct() {
         // eslint-disable-next-line
     }, [productId]);
 
+    const addToCart = async () => {
+        if (user) {
+            try {
+                const res = await axios.post(`http://localhost:5000/api/products/addcart/${productId}`, {
+                    userId: user._id,
+                }, {
+                    headers: {
+                        token: "bearer " + localStorage.getItem('accessToken'),
+                    }
+                });
+                // console.log(res.data);
+                // update login user so that its cart get updated
+                if (res.data.success) {
+                    localStorage.setItem("user", JSON.stringify(res.data.user));
+                    setUser(res.data.user);
 
+                    // react toastify
+                    toast.success('Product added to cart successfully!', {
+                        position: "top-right",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                }
+            } catch (err) {
+                console.log(err);
+
+                // react toast
+                toast.error('Invalid user!', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            }
+        }
+        else {
+            // react toastify
+            toast.warn('Sign In first to continue!', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+        }
+    }
 
     return (
         <div className="single_product">
+            {/* alert */}
+            <ToastContainer
+                position="top-right"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+                style={{ position: "absolute", top: "60px" }}
+            />
+
             {product ? (
                 <>
                     <div className="left">
                         <div id="product_img">
-                            <img src={product.imgUrl}alt="product-img" />
+                            <img src={product.imgUrl} alt="product-img" />
                         </div>
                         <div className="left_btn">
-                            <Button variant="outlined" startIcon={<DeleteIcon />}>
+                            <Button variant="outlined" startIcon={<AddShoppingCartIcon />} onClick={addToCart}>
                                 Add to Cart
                             </Button>
-                            <Button variant="outlined" startIcon={<DeleteIcon />}>
-                                Buy Now
-                            </Button>
+                            <Link className="link" to={'/buynow'}>
+                                <Button variant="outlined" startIcon={<Shop2Icon />}>
+                                    Buy Now
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                     {/* right part */}

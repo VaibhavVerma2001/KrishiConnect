@@ -14,7 +14,7 @@ function Banner() {
         <div className='banner'>
             <Carousel
                 className="carasousel"
-                autoPlay={false}
+                autoPlay={true}
                 animation="slide"
                 indicators={false}
                 navButtonsAlwaysVisible={true}

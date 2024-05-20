@@ -2,6 +2,7 @@ import React from 'react';
 import './bigcard.scss';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom'
 
 function BigCard(props) {
     const myStyle = {
@@ -22,9 +23,11 @@ function BigCard(props) {
                 THE FRUIT IS ALWAYS FRESH AND GOOD QUALITY
             </span>
 
-            <Button className='btn' variant="outlined" endIcon={<DeleteIcon />}>
-                SHOP NOW
-            </Button>
+            <Link className="link" to={'/category/vegetables'}>
+                <Button className='btn' variant="outlined" endIcon={<DeleteIcon />}>
+                    SHOP NOW
+                </Button>
+            </Link>
 
         </div>
     )

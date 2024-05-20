@@ -1,5 +1,5 @@
 import React from 'react';
-import {useContext } from 'react';
+import { useContext } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,7 +16,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../assets/krishiLogo.png'
 import SellIcon from '@mui/icons-material/Sell';
 import ArticleIcon from '@mui/icons-material/Article';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
 
@@ -164,14 +164,16 @@ function Navbar() {
                 <p>{user.username}</p>
             </MenuItem>
 
+            <Link className="link" to={"/buynow"}>
             <MenuItem>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
+                    <Badge badgeContent={user.carts.length ? user.carts.length : "0"} color="error">
                         <ShoppingCartIcon />
                     </Badge>
                 </IconButton>
                 <p>Cart</p>
             </MenuItem>
+            </Link>
 
 
 
@@ -240,11 +242,13 @@ function Navbar() {
                                 <p style={{ fontSize: "1.1rem" }}>News</p>
                             </IconButton>
                         </Link>
-
+                        
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="error">
+                        <Link className="link" to={"/buynow"}>
+                            <Badge badgeContent={user.carts.length ? user.carts.length : "0"} color="error">
                                 <ShoppingCartIcon />
                             </Badge>
+                        </Link>
                         </IconButton>
 
                         <IconButton

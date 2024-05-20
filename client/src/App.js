@@ -15,6 +15,8 @@ import UserContext from './context/UserContext';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Category from './pages/Category';
+import BuyNow from './components/buynow/BuyNow';
 
 
 function App() {
@@ -36,9 +38,11 @@ function App() {
           <Route path="/news" element={!user ? <Login /> : <News/>} />
           <Route path="/register" element={!user ? <Register /> : <Navigate to='/' />} />
           <Route path="/login" element={!user ? <Login /> : <Navigate to='/' />} />
-          <Route path="/getproduct/:id" element={<SingleProduct />} />
+          <Route path="/getproduct/:id" element={!user ? <Login /> : <SingleProduct/>} />
+          <Route path="/category/:category" element={!user ? <Login /> : <Category/>} />
           <Route path="/about" element={!user ? <Login /> : <About/>} />
           <Route path="/contact" element={!user ? <Login /> : <Contact/>} />
+          <Route path="/buynow" element={user ? <BuyNow /> : <Navigate to='/login' />} />
         </Routes>
 
         {user && <Footer />}

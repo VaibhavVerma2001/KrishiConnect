@@ -68,47 +68,73 @@ function SecondaryNavbar() {
                             sx={{
                                 display: { xs: 'block', md: 'none' },
                             }}
-                        >
+                        >   
+                            <Link className="link" to={'/'}>
                             <MenuItem
                                 style={{ minWidth: "300px" }} onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center">Home</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/all'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">All Prodcuts</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/vegetables'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">Vegetables</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/fruits'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">Fruits</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/crops'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">Crops</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/seeds'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">Seeds</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/pesticides'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">Pesticides</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/fertilizers'}>
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
+                                <Typography textAlign="center">Fertilizers</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/category/equipments'}>
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center">Equipments</Typography>
+                            </MenuItem>
+                            </Link>
+
+                            <Link className="link" to={'/about'}>
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center">About Us</Typography>
                             </MenuItem>
+                            </Link>
 
+                            <Link className="link" to={'/contact'}>
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Typography textAlign="center">Contact Us</Typography>
                             </MenuItem>
+                            </Link>
 
                         </Menu>
                     </Box>

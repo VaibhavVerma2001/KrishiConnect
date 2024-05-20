@@ -126,7 +126,7 @@ function Footer() {
 
                 <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
                     © 2024 Copyright:
-                    <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
+                    <a className='text-reset fw-bold' href='/'>
                         KrishiConnect.com
                     </a>
                 </div>
