@@ -34,4 +34,19 @@
 
     }
 
+    @media only screen and (max-width: 700px) {
+        .category{
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+
+            .left img {
+                height: 200px;
+               width: 100%;
+            }
+        }
+
+       
+    }
+
 }

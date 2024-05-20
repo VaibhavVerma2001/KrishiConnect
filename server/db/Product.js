@@ -40,6 +40,7 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
+        default : "VEGETABLES",
         enum: ["SEEDS", "VEGETABLES", "FRUITS", "CROPS", "PESTICIDES", "FERTILIZERS", "EQUIPMENTS", "OTHERS"],
     },
 },

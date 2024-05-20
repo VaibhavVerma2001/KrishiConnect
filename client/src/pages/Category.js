@@ -42,7 +42,7 @@ function Category() {
       {categoryProducts ? (
         <div  className="product-info">
           {categoryProducts.map((product, i) => (
-            <div>
+            <div key={i}>
               <CategoryCard product = {product}/>
             </div>
           ))}

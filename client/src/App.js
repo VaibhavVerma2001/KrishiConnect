@@ -17,6 +17,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Category from './pages/Category';
 import BuyNow from './components/buynow/BuyNow';
+import Upload from './pages/Upload';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/register" element={!user ? <Register /> : <Navigate to='/' />} />
           <Route path="/login" element={!user ? <Login /> : <Navigate to='/' />} />
           <Route path="/getproduct/:id" element={!user ? <Login /> : <SingleProduct/>} />
+          <Route path="/sell" element={!user ? <Login /> : <Upload/>} />
           <Route path="/category/:category" element={!user ? <Login /> : <Category/>} />
           <Route path="/about" element={!user ? <Login /> : <About/>} />
           <Route path="/contact" element={!user ? <Login /> : <Contact/>} />

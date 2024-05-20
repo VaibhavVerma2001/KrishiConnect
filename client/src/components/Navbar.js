@@ -117,7 +117,7 @@ function Navbar() {
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>{user.username}</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Sell Item</MenuItem>
+            <Link className="link" to={'/sell'}><MenuItem onClick={handleMenuClose}>Sell Item</MenuItem></Link>
         </Menu>
     );
 
@@ -178,7 +178,7 @@ function Navbar() {
 
 
 
-
+            <Link className="link" to={'/sell'}>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
                     size="large"
@@ -191,6 +191,7 @@ function Navbar() {
                 </IconButton>
                 <p>Sell Item</p>
             </MenuItem>
+            </Link>
 
 
             <MenuItem onClick={handleProfileMenuOpen}>

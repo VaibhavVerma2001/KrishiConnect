@@ -28,7 +28,7 @@ function ProductCard(props) {
                             <div className="price-container">
                                 <span className="price">₹{props.product.price.cost}</span>
                                 <span className="mrp">{props.product.price.only_mrp}</span>
-                                <span className="discount">{props.product.price.discount}%</span>
+                                <span className="discount">{props.product.price.discount}</span>
                             </div>
                         </CardContent>
                     </ Link >

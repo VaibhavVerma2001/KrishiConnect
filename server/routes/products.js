@@ -126,5 +126,18 @@ router.delete("/removecart/:productId", verify, async (req, res) => {
 });
 
 
+// upload product
+router.post("/upload", (req,res)=>{
+    try {   
+        const newProduct = new Product(req.body);
+        newProduct.save();
+        console.log(newProduct, "uploaded successfully");
+        res.status(201).json(newProduct);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+    
+})
 
 module.exports = router;
